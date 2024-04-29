@@ -93,11 +93,8 @@ const Navbar = () => {
                     </li>
                     <li>
                         <Link onClick={closeMenu} activeClass="navbar--active-content"
-                        spy={true}
-                        smooth={true}
-                        offset={-70}
-                        duration={500}
-                        to="Login"
+                        
+                        to="/login"
                         className="navbar--content"
                         >
                             
