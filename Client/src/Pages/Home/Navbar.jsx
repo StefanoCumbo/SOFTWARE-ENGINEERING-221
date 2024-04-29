@@ -110,7 +110,7 @@ const Navbar = () => {
                 smooth={true}
                 offset={-70}
                 duration={500}
-                to="Register"
+                to="/Register"
                 className="btn btn-outline-primary"
                 >
                      Register
