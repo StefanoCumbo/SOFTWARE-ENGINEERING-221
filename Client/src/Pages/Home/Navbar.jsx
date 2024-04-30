@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-scroll";
+import { Link  as ScrollLink} from "react-scroll";
+import { Link as RouterLink } from "react-router-dom";
+
 
 const Navbar = () => {
     const [navActive, setNavActive] = useState(false);
@@ -50,72 +52,56 @@ const Navbar = () => {
             <div className={`navbar--items ${navActive ? "active":""}`}>
                 <ul>
                     <li>
-                        <Link onClick={closeMenu} activeClass="navbar--active-content"
-                        spy={true}
-                        smooth={true}
-                        offset={-70}
-                        duration={500}
-                        to="heroSection"
+                        <RouterLink onClick={closeMenu} activeClass="navbar--active-content"
+                        to="/"
                         className="navbar--content"
                         >
                             
                             Home
-                          </Link>
+                          </RouterLink>
                         
                     </li>
                     <li>
-                        <Link onClick={closeMenu} activeClass="navbar--active-content"
-                        spy={true}
-                        smooth={true}
-                        offset={-70}
-                        duration={500}
-                        to="mySkills"
+                        <RouterLink onClick={closeMenu} activeClass="navbar--active-content"
+                        to="/my-skills"
                         className="navbar--content"
                         >
                             
                             Skills
-                          </Link>
+                          </RouterLink>
                         
                     </li>
                     <li>
-                        <Link onClick={closeMenu} activeClass="navbar--active-content"
-                        spy={true}
-                        smooth={true}
-                        offset={-70}
-                        duration={500}
-                        to="AboutUs"
+                        <RouterLink onClick={closeMenu} activeClass="navbar--active-content"
+                        to="/about-us"
                         className="navbar--content"
                         >
                             
                             About Us
-                          </Link>
+                          </RouterLink>
                         
                     </li>
                     <li>
-                        <Link onClick={closeMenu} activeClass="navbar--active-content"
+                        <RouterLink onClick={closeMenu} activeClass="navbar--active-content"
                         
                         to="/login"
                         className="navbar--content"
                         >
                             
                             Login
-                          </Link>
+                          </RouterLink>
                         
                     </li>
                 </ul>
           </div>
 
-          <Link onClick={closeMenu} activeClass="navbar--active-content"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                to="/Register"
+          <RouterLink onClick={closeMenu} activeClass="navbar--active-content"
+                to="/register"
                 className="btn btn-outline-primary"
                 >
                      Register
                 
-            </Link>
+            </RouterLink>
                 
              
         </nav>
