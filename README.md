@@ -6,7 +6,7 @@ To run the app, go to terminal and first run npm i to install dependancies, then
 
 If you get auth id error then ask chat gpt u just need to add ur email and username.
 
-CHECK YOUR BEANCH NAME AND ONLY PUSH TO THAT BRANCH, CREATE ON IF YOU DONT HAVE ONE.
+CHECK YOUR BRANCH NAME AND ONLY PUSH TO THAT BRANCH, CREATE ON IF YOU DONT HAVE ONE.
 
 git add . //TO ADD ADD FILES THEN: 
 
