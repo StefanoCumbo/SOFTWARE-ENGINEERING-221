@@ -9,12 +9,25 @@ import AboutUs from './Pages/Home/AboutUs';
 import MySkills from './Pages/Home/MySkills';
 import HeroSection from './Pages/Home/HeroSection';
 import Footer from './Pages/Home/Footer';
+import Dashboard from './Pages/Home/Dashboard';
+import ParkingLots from './Pages/Home/ParkingLots';
+import ManageRequests from './Pages/Home/ManageRequests';
+import ManageUsers from './Pages/Home/ManageUsers';
+import AdminNavBar from './Pages/Home/AdminNavBar';
+import Communication from './Pages/Home/Communication';
+import DriverNavBar from './Pages/Home/DriverNavBar';
+import SendParkingRequest from './Pages/Home/SendParkingRequest';
+import Payments from './Pages/Home/Payments';
+import ParkingStatus from './Pages/Home/ParkingStatus';
+import Messages from './Pages/Home/Messages';
+import Monitor from './Pages/Home/Monitor';
+
 
 
 
 function App() {
 
-const [userType, setUserType] = useState(null);
+const [userType, setUserType] = useState("driver");
 
 let NavBarComponent;
 if(userType ==='admin'){
@@ -25,19 +38,35 @@ if(userType ==='admin'){
   NavBarComponent = Navbar;
 }
 
+
+const handleLogout = ()=>{
+  setUserType("")
+};
+
+
   return (
     <div className="App">
       <Router>
         <div>
-          <NavBarComponent/>
+          <NavBarComponent  handleLogout={handleLogout}/>
           <Routes>
 
-
+            
             <Route  path='/' element={<HeroSection/>}></Route>
             <Route path='/login' element={<Login/>}></Route> */
-            <Route path="/register" element={<Register/>} />
+            <Route path="/register" element={<Register setUserType={setUserType}/>} />
             <Route path="/about-us" element={<AboutUs/>} />
             <Route path="/my-skills" element={<MySkills/>} />
+            <Route path="/dashboard" element={<Dashboard/>} />
+            <Route path='/monitor' element={<Monitor/>}/>
+            <Route path="/manage-parking-lots" element={<ParkingLots/>}/>
+            <Route path="/manage-requests" element={<ManageRequests/>}/>
+            <Route path="/manage-users" element={<ManageUsers/>}/>
+            <Route path="/communication" element={<Communication/>}/>
+            <Route path="/send-parking-request" element={<SendParkingRequest/>}/>
+            <Route path='/payments' element={<Payments/>}/>
+            <Route path='/parking-status' element={<ParkingStatus/>}/>
+            <Route path='/messages' element={<Messages/>}/>
 
 
 

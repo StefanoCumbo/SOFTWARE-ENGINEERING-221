@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link  as ScrollLink} from "react-scroll";
-import { Link as RouterLink } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 
 const Navbar = () => {
@@ -52,56 +51,56 @@ const Navbar = () => {
             <div className={`navbar--items ${navActive ? "active":""}`}>
                 <ul>
                     <li>
-                        <RouterLink onClick={closeMenu} activeClass="navbar--active-content"
+                        <Link onClick={closeMenu} activeClass="navbar--active-content"
                         to="/"
                         className="navbar--content"
                         >
                             
                             Home
-                          </RouterLink>
+                          </Link>
                         
                     </li>
                     <li>
-                        <RouterLink onClick={closeMenu} activeClass="navbar--active-content"
+                        <Link onClick={closeMenu} activeClass="navbar--active-content"
                         to="/my-skills"
                         className="navbar--content"
                         >
                             
                             Skills
-                          </RouterLink>
+                          </Link>
                         
                     </li>
                     <li>
-                        <RouterLink onClick={closeMenu} activeClass="navbar--active-content"
+                        <Link onClick={closeMenu} activeClass="navbar--active-content"
                         to="/about-us"
                         className="navbar--content"
                         >
                             
                             About Us
-                          </RouterLink>
+                          </Link>
                         
                     </li>
                     <li>
-                        <RouterLink onClick={closeMenu} activeClass="navbar--active-content"
+                        <Link onClick={closeMenu} activeClass="navbar--active-content"
                         
                         to="/login"
                         className="navbar--content"
                         >
                             
                             Login
-                          </RouterLink>
+                          </Link>
                         
                     </li>
                 </ul>
           </div>
 
-          <RouterLink onClick={closeMenu} activeClass="navbar--active-content"
+          <Link onClick={closeMenu} activeClass="navbar--active-content"
                 to="/register"
                 className="btn btn-outline-primary"
                 >
                      Register
                 
-            </RouterLink>
+            </Link>
                 
              
         </nav>
