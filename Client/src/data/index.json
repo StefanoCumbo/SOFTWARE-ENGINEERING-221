@@ -5,26 +5,26 @@
       {
         "id": "1",
         "src": "./img/product-chain-1.png",
-        "title": "Lorem ipsum ",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+        "title": "Real-Time Space Availability Updates",
+        "description": "Receive instant updates on available parking spaces across the university campus, ensuring efficient utilization of parking facilities. Never waste time searching for parking again."
       },
       {
         "id": "2",
         "src": "./img/tag-1.png",
-        "title": "Lorem ipsum ",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+        "title": "Customized Parking Permit Management",
+        "description": "Tailor parking permits to specific user needs, whether it's for students, faculty, or visitors. Easily manage permit issuance, renewal, and enforcement through our intuitive system."
       },
       {
         "id": "3",
         "src": "./img/feather-pen-2.png",
-        "title": "Lorem ipsum ",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+        "title": "Intelligent Parking Analytics",
+        "description": "Harness the power of data analytics to optimize parking operations. Gain insights into peak usage hours, parking trends, and vehicle distribution to enhance resource allocation and planning."
       },
       {
         "id": "4",
         "src": "./img/feather-pen-1.png",
-        "title": "Lorem ipsum ",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
+        "title": "Mobile App Integration",
+        "description": "Seamlessly integrate parking management with a user-friendly mobile application. Allow users to reserve parking spaces, navigate to available spots, and make payments conveniently from their smartphones."
       }
     ]
 }
