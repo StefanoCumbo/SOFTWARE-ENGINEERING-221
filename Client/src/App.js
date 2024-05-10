@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import Home from './Pages/Home/Homescreen';
+// import Home from './Pages/Home/Homescreen';
 import Navbar from './Pages/Home/Navbar';
 import Register from './Pages/Home/Register';
 import Login from './Pages/Home/Login';
@@ -27,7 +27,7 @@ import Monitor from './Pages/Home/Monitor';
 
 function App() {
 
-const [userType, setUserType] = useState("driver");
+const [userType, setUserType] = useState("admin");
 
 let NavBarComponent;
 if(userType ==='admin'){

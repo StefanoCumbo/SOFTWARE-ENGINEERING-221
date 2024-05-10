@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import {useNavigate} from 'react-router-dom'
 
 const Register = ({setUserType}) => {
+    const navigate = useNavigate();
 
     const [selectedUserType, setSelectedUserType] = useState("");
 
@@ -17,7 +19,9 @@ const Register = ({setUserType}) => {
         const phoneNumber = e.target.elements['phone-number'].value;
         const password = e.target.elements['password'].value;
 
-        const response = await fetch('http://localhost:8000/register', { 
+
+
+        const response = await fetch('http://localhost:8000/register',{  
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -31,16 +35,17 @@ const Register = ({setUserType}) => {
                 phoneNumber,
                 password
             }),
+            
         });
-        console.log('Response status:', response.status);
-        console.log('Response data:', await response.json());
     
         if (!response.ok) {
             // handle error
-            console.log('Registration failed');
+            console.log('post request failed from front end' + response.status);
+            // toast.error(responseData.error)
         } else {
             // handle success
-            console.log('Registration successful');
+            console.log('post request succesfully sent from front end' + response.status);
+            // navigate('/login')
         }
     };
 
@@ -129,8 +134,8 @@ const Register = ({setUserType}) => {
                         <span className="text-md">User-type</span>
                         <select id="user-type" className="register--input text-md" required value={selectedUserType} onChange={e => setSelectedUserType(e.target.value)}>
                         <option value="" disabled>Select one</option>
-                        <option value="Admin">Admin</option>
-                        <option value="Driver">Driver</option>
+                        <option value="admin">admin</option>
+                        <option value="driver">driver</option>
                         </select>
                         
                     </label>
