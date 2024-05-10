@@ -53,7 +53,7 @@ const handleLogout = ()=>{
 
             
             <Route  path='/' element={<HeroSection/>}></Route>
-            <Route path='/login' element={<Login/>}></Route> */
+            <Route path='/login' element={<Login/>}></Route> 
             <Route path="/register" element={<Register setUserType={setUserType}/>} />
             <Route path="/about-us" element={<AboutUs/>} />
             <Route path="/my-skills" element={<MySkills/>} />

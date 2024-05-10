@@ -506,3 +506,57 @@ h2{
   }
 
 
+/*  Login starts */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    flex-direction: column; 
+    background-color: var(--bg--shade); 
+}
+
+.login-title {
+    margin-bottom: 35px; /* Add margin below the title */
+    color: var(--heading-color); /* Set text color */
+}
+
+.login-form {
+    max-width: 360px;
+    width: 100%;
+    padding: 20px;
+    background-color: var(--white); /* Set background color */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form .form-group {
+    margin-bottom: 18px;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--heading-color); /* Set text color */
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+    width: 95%;
+    padding: 9px;
+    border-radius: 14px;
+    border: 1px solid var(--primary);
+    background: var(--white);
+}
+
+.login-form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Login ends */
