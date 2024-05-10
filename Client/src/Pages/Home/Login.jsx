@@ -34,9 +34,13 @@ const Login = () => {
                 
                     <label htmlFor="password" className='register--label'>Password</label>
                     <input type="password" id="password" name="password" required className="register--input text-md" value={password} onChange={(e) => setPassword(e.target.value)} />
-                
-                <button type="submit" className="btn btn-primary register--form--btn">Login</button>
                 </div>
+                <div>
+                <button type="submit" className="btn btn-primary register--form--btn">Login</button>
+
+                </div>
+                
+                
         
             </form>
             
