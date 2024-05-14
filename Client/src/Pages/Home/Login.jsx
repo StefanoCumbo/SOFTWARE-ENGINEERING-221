@@ -1,17 +1,40 @@
-import React, { useState } from 'react';
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const navigate = useNavigate()
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+
+    const handleSubmit = async(e) => {
+        e.preventDefault();
+        const email = e.target.elements['email'].value
+        const password = e.target.elements['password'].value
+
+
+        const response = await fetch('http://localhost:8000/login',{  
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email,
+                password
+            }),
+            
+        });
+    
+        if (!response.ok) {
+            // handle error
+            console.log('post request failed from front end' + response.status);
+        } else {
+            // handle success
+            console.log('post request succesfully sent from front end' + response.status);
+            navigate('/')
+            
+        }
         
         
-        // Replace w authencation code bwlow
         
-        console.log('Email:', email);
-        console.log('Password:', password);
+       
     };
 
     return ( 
@@ -29,12 +52,19 @@ const Login = () => {
                     name="email"
                     required 
                     className="register--input text-md"
-                    value={email} onChange={(e) => setEmail(e.target.value)} />
+                    />
                 
                 
                     <label htmlFor="password" className='register--label'>Password</label>
-                    <input type="password" id="password" name="password" required className="register--input text-md" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <input type="password" 
+                    id="password"
+                    name="password" 
+                    required 
+                    className="register--input text-md" 
+                    />
                 </div>
+
+
                 <div>
                 <button type="submit" className="btn btn-primary register--form--btn">Login</button>
 

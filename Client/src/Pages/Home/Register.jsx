@@ -45,7 +45,7 @@ const Register = ({setUserType}) => {
         } else {
             // handle success
             console.log('post request succesfully sent from front end' + response.status);
-            // navigate('/login')
+            navigate('/login')
         }
     };
 
@@ -122,8 +122,7 @@ const Register = ({setUserType}) => {
                         name="phone-number"
                         id="phone-number"
                         required
-                        // pattern="\\+44\\s?[0-9]{4}\\s?[0-9]{6}"
-                        // title="Format: +44 xxxx xxxxxx"
+                        
 
                         />
 
