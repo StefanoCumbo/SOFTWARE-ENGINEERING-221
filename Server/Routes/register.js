@@ -1,28 +1,53 @@
 const express = require('express');
-const app = express();
-const User = require('../Models/user')
+const router = express.Router();
+const User = require('../Models/user');
+const { hashedPassword } = require('../../hash');
 
-app.post('/register', async(req, res) => {
+
+router.post('/', async(req, res) => {
   console.log("Register route hit")
   const { userType, firstName, lastName, userName, email, phoneNumber, password} = req.body;
+  const hashed = await hashedPassword(password)
 
   try {
-    const user = new User({
+    console.log("about to create user")
+    const user = await User.create({
       userType,
       firstName,
       lastName,
       userName,
       email,
       phoneNumber,
-      password
+      password: hashed
     });
+    console.log("user created")
 
     await user.save();
-    res.status(201).send("User has been registered");
+    res.send("User has been registered");
   } catch(error) {
-    res.status(500).send("There was an error: " + error);
+    console.log(error);
   }
 });
 
 
-module.exports = app;
+
+module.exports = router;
+
+
+
+
+/////////////////////////////////////////////////////
+//validation test
+   
+    // if(!password || password.length < 6){
+    //   return res.json({
+    //     error: "Password is required and should be at least 6 characters"
+    //   })
+    // }
+
+    // const exist = await User.findOne({email});
+    // if (exist){
+    //   return res.json({
+    //     error: "This email has been taken "
+    //   })
+    // }

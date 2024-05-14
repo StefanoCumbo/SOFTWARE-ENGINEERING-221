@@ -2,10 +2,11 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const helmet = require('helmet');
 const bodyParser = require('body-parser');
 
-const registerRouter = require('./Routes/register');
+
+const registerRouter = require('./Routes/register')
+const loginRouter = require('./Routes/login')
 
 const port = process.env.PORT;
 
@@ -21,20 +22,18 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Define routes
+
+//routes
 app.use('/register', registerRouter);
+app.use('/login', loginRouter);
 
+app.get("/", (req, res) => {
+    res.send("Hello world!");
+});
 
-app.use('*', (req, res) => {
-    res.status(404).json({ error: 'Not Found' });
-  });
 
 // Start server
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
 
-// Test route
-app.get("/", (req, res) => {
-    res.send("Hello world!");
-});
