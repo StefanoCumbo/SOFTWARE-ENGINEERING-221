@@ -4,10 +4,17 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
-
+// Initialise router
 const registerRouter = require('./Routes/register')
 const loginRouter = require('./Routes/login')
+const manageRequestsRouter = require('./Routes/manageRequests')
+const sendParkingRequestRouter = require('./Routes/sendParkingRequest')
 
+
+
+
+
+//PORT
 const port = process.env.PORT;
 
 // Connect to DB
@@ -21,11 +28,14 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
 
 
 //routes
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
+app.use('/manage-requests', manageRequestsRouter);
+app.use('/sendParkingRequest', sendParkingRequestRouter);
 
 app.get("/", (req, res) => {
     res.send("Hello world!");
