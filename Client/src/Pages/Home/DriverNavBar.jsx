@@ -74,7 +74,7 @@ useEffect(()=>{
                     className="navbar--content"
                     >
                         
-                        Send Parking Request.
+                        Send Parking Request
                       </Link>
                     
                 </li>
@@ -84,7 +84,7 @@ useEffect(()=>{
                     className="navbar--content"
                     >
                         
-                        Payments.
+                        Payments
                       </Link>
                     
                 </li>
@@ -94,7 +94,7 @@ useEffect(()=>{
                     className="navbar--content"
                     >
                         
-                        Parking Status.
+                        Parking Status
                       </Link>
                     
                 </li>

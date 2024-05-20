@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 
 function useFetch(url) {
@@ -6,6 +7,7 @@ function useFetch(url) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    
     fetch(url)
       .then(response => {
         if (response.ok) {
@@ -23,3 +25,4 @@ function useFetch(url) {
 }
 
 export default useFetch;
+

@@ -9,7 +9,7 @@ const Monitor = () => {
 
   return (
     <div>
-      {parkingLots && parkingLots.map(lot => (
+      {parkingLots && parkingLots.map(parkingLot => (
         <div key={lot.lot_id}>
           <h2>{lot.location}</h2>
           <p>Total Spaces: {lot.capacity}</p>
