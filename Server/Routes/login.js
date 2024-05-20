@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../Models/user');
-const { comparePassword } = require('../../hash');
+const { comparePassword } = require('../hash');
 
 router.post('/', async(req, res)=>{
   console.log('/login router hit')
