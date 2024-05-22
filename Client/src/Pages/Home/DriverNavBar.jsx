@@ -90,11 +90,11 @@ useEffect(()=>{
                 </li>
                 <li>
                     <Link onClick={closeMenu} activeClass="navbar--active-content"
-                    to="/parking-status"
+                    to="/parking-space"
                     className="navbar--content"
                     >
                         
-                        Parking Status
+                        Parking Space
                       </Link>
                     
                 </li>

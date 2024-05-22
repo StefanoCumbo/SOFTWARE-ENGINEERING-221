@@ -18,16 +18,16 @@ import Communication from './Pages/Home/Communication';
 import DriverNavBar from './Pages/Home/DriverNavBar';
 import SendParkingRequest from './Pages/Home/SendParkingRequest';
 import Payments from './Pages/Home/Payments';
-import ParkingStatus from './Pages/Home/ParkingStatus';
 import Messages from './Pages/Home/Messages';
 import Monitor from './Pages/Home/Monitor';
+import ParkingSpace from './Pages/Home/ParkingSpace';
 
 
 
 
 function App() {
 
-const [userType, setUserType] = useState("admin");
+const [userType, setUserType] = useState("driver");
 
 let NavBarComponent;
 if(userType ==='admin'){
@@ -65,7 +65,7 @@ const handleLogout = ()=>{
             <Route path="/communication" element={<Communication/>}/>
             <Route path="/send-parking-request" element={<SendParkingRequest/>}/>
             <Route path='/payments' element={<Payments/>}/>
-            <Route path='/parking-status' element={<ParkingStatus/>}/>
+            <Route path='/parking-space' element={<ParkingSpace/>}/>
             <Route path='/messages' element={<Messages/>}/>
 
 

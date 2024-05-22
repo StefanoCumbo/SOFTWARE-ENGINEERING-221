@@ -9,15 +9,21 @@ const ManageRequests = () => {
 
   return (
     <div className='fetch--container'>
+      {requests && requests.map(parkingRequest => {
+        const arrivalDateTime = new Date(parkingRequest.arrivalDateTime).toLocaleString();
+        const departureDateTime = new Date(parkingRequest.departureDateTime).toLocaleString();
 
-      {requests && requests.map(parkingRequest => (
-        <div key={parkingRequest._id} className='card'>
-          <h4 className='card-title'> Parking request </h4>
-          <p className='card-text'>  <strong>Parking request id : </strong>{parkingRequest._id} </p>
-          <button className=' btn btn-primary'>Approve</button>
-          <button className='btn btn-primary'>Reject</button>
-        </div>
-      ))}
+        return (
+          <div key={parkingRequest._id} className='card'>
+            <h4 className='card-title'> Parking request id : {parkingRequest._id} </h4>
+            <p className='card-text'>  <strong>Destination : </strong>{parkingRequest.destination } </p>
+            <p className='card-text'> Arrival Date/Time: {arrivalDateTime}</p>
+            <p className='card-text'> Departure Date/Time: {departureDateTime}</p>
+            <button className=' btn btn-primary'>Approve</button>
+            <button className='btn btn-primary'>Reject</button>
+          </div>
+        )
+      })}
     </div>
   );
 };
