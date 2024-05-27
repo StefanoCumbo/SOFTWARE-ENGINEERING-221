@@ -8,8 +8,9 @@ const {Schema} = mongoose;
 const parkingRequestSchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User' },
     assignedSpace: { type: Schema.Types.ObjectId, ref: 'ParkingSpaces', default: null },
+    email: {type: String, required: true},
 
-    status: { type: String, enum: ['pending', 'approved', 'rejected'] },
+    status: { type: String, enum: ['pending', 'approved', 'rejected'] , default: 'pending' },
     destination: { type: String, enum:['The Innovation Centre', 'New Science Building',
         'Norwich Business School','The Enterprise Centre', 'Uea Law School', 'INTO'
     ], required: true },
