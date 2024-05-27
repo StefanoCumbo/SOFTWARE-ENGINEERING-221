@@ -22,12 +22,14 @@ import Messages from './Pages/Home/Messages';
 import Monitor from './Pages/Home/Monitor';
 import ParkingSpace from './Pages/Home/ParkingSpace';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 function App() {
 
-const [userType, setUserType] = useState("driver");
+const [userType, setUserType] = useState("admin");
 
 let NavBarComponent;
 if(userType ==='admin'){
@@ -75,6 +77,9 @@ const handleLogout = ()=>{
 
           </Routes>
           <Footer/>
+          
+          <ToastContainer autoClose={3000} /> 
+
           
         </div>
       </Router>

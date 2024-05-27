@@ -13,9 +13,10 @@ const SendParkingRequest = () => {
         const destination = e.target.elements['destination'].value
         const arrivalDateTime = e.target.elements['arrivalDateTime'].value
         const departureDateTime = e.target.elements['departureDateTime'].value
+        const email = e.target.elements['email'].value
 
 
-        console.log(destination, arrivalDateTime, departureDateTime)
+        console.log(destination, arrivalDateTime, departureDateTime, email)
 
         const response = await fetch('http://localhost:8000/sendParkingRequest',{  
             method: 'POST',
@@ -25,7 +26,8 @@ const SendParkingRequest = () => {
             body: JSON.stringify({
                 destination,
                 arrivalDateTime,
-                departureDateTime
+                departureDateTime,
+                email
             }),
             
         });
@@ -79,6 +81,16 @@ const SendParkingRequest = () => {
                     <label htmlFor="departureDateTime" className="register--label">
                         <span className="text-md">Departure Date and Time</span>
                         <input type="datetime-local" id="departureDateTime" className="register--input text-md" required />
+                    </label>
+                    <label htmlFor="first-name" className="register--label">
+                        <span className="text-md">Enter email</span>
+                        <input type="text"
+                         className="register--input text-md"
+                         name="email"
+                         id="email"
+                         required
+                         
+                         />
                     </label>
 
                 

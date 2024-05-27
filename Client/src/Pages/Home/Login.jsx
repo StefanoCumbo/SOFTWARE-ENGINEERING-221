@@ -42,7 +42,7 @@ const Login = () => {
             <div>
                 <p className="login-title"></p>
                 <h2>Login</h2>
-                <p className="text-lg">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, dicta.</p>
+                <p className="text-lg"> Already a member? log in to access your portal</p>
             </div>
             <form onSubmit={handleSubmit} className="register--form--container">
                 <div className="container">

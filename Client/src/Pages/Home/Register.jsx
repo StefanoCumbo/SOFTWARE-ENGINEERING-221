@@ -58,9 +58,10 @@ const Register = ({setUserType}) => {
     return ( 
         <section id="Register" className="register--section">
             <div>
-                <p className="sub--title"> Get In Touch</p>
+                <p className="sub--title"> Get in Touch</p>
                 <h2>Register</h2>
-                <p className="text-lg">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, dicta.</p>
+                <p className="text-lg">Register today to receive live updates and make the parking process simple and easy!</p>
+
             </div>
             <form className="register--form--container"  onSubmit={handleRegister}>
                 <div className="container">
