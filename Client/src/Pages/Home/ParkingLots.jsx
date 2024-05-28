@@ -22,7 +22,7 @@ const ParkingLots = () => {
     e.preventDefault();
 
     try {
-        const response = await fetch('/api/parking-spaces', {
+        const response = await fetch('/parking-lot', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ const ParkingLots = () => {
     e.preventDefault();
 
     try {
-        const response = await fetch(`/api/parking-space/${removeId}`, {
+        const response = await fetch(`/parking-lot/${removeId}`, {
           method: 'DELETE',
         });
     
@@ -69,39 +69,16 @@ const ParkingLots = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
 
-    try {
-      const response = await fetch(``, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ status }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      } else {
-        console.log('Parking space updated successfully!');
-        // Update your component state here to reflect the change
-        const updatedSpace = await response.json(); // Get the updated space data from the server response
-        onUpdateSpace(updatedSpace); // Update the parent component state
-
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  };
+//stef will do
+    
+  }
 
   return (
-    
     <div className='parking-lot-container'>
       <div>
     <form className='parking-lot-card' onSubmit={handleAdd}>
       <h4 className='parking-lot-card-title'> Add a New Parking Lot </h4>
-      <label className='parking-lot-card-label'>
-        <strong className='parking-lot-card-label-text'>Parking Lot ID:</strong>
-        <input type="text" name="parkingLot" value={spaceData.parkingLot} onChange={(e) => setSpaceData(e.target.value)} required />
-      </label>
+      <p className='card-text'>click here to add a new parking lot!</p>
       <div className='parking-lot-submit'>
       <button type="submit" className='btn btn-primary'>Add Parking Space</button></div>
     </form>
@@ -134,7 +111,7 @@ const ParkingLots = () => {
           </select></p>
         </label>
         <div className='parking-lot-submit'>
-        <button type="submit" className='btn btn-primary'>Update Parking Space</button></div>
+        <button type="submit" className='btn btn-primary '>Update Parking Space</button></div>
       </form></div>
 
       

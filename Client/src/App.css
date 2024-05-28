@@ -199,7 +199,8 @@ h2{
     list-style: none;
     display: flex;
     align-items: flex-start;
-    gap: 40px
+    gap: 40px;
+    width: 90%;
 
 }
 
