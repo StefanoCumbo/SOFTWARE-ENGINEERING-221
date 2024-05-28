@@ -2,31 +2,69 @@ import React, { useState } from 'react';
 import useFetch from './useFetch';
 import { useEffect } from 'react';
 import usePatch from './usePatch';
-
+import { useNavigate } from 'react-router-dom';
 import {toast} from 'react-toastify'
 
-const ManageRequests = () => {
+const ManageRequests = ({setApprovedParkingSpaceId}) => {
+
+
+
+  const locationMapping = {
+    'The Innovation Centre': 'UEA Triangle Car Park',
+    'New Science Building': 'UEA West Car Park',
+    'Norwich Business School': 'UEA West Car Park',
+    'The Enterprise Centre': 'UEA West Car Park',
+    'Uea Law School': 'UEA Main Car Park',
+    'INTO': 'UEA Main Car Park'
+  };
+  
+
+
 
 
 //create state for parking requests so you can dynamically remove them when they are App / Rej 
   const [requests, setRequests] = useState(null); // Add this line
+  const [parkingSpaces, setParkingSpaces] = useState(null)
+  const navigate = useNavigate();
 
 
 
   const { data: fetchData, loading, error } = useFetch('http://localhost:8000/manage-requests');
-  const {patch } = usePatch('http://localhost:8000/manage-requests');
+  const {patch, patchError } = usePatch('http://localhost:8000/manage-requests');
+  const { data: fetchParkingSpaces } = useFetch('http://localhost:8000/parkingSpaces');
 
 //initially load the parking requests when the page loads up
   useEffect(() => {
     setRequests(fetchData); 
-}, [fetchData]);
+    setParkingSpaces(fetchParkingSpaces)
+    
+}, [fetchData, fetchParkingSpaces]);
 
   const handleApprove = (id) =>{
-    const updateData = {status: 'approved'};
+
+    const parkingRequest = requests.find((request) => request._id === id);
+    const assignedLocation = locationMapping[parkingRequest.destination]
+
+    const assignedParkingSpace = parkingSpaces.find((space) => space.parkingLot.location === assignedLocation
+      && space.status === 'available'
+    );
+
+    if (!assignedParkingSpace) {
+      toast.error(`No available parking space found for location: ${assignedLocation}`);
+      return;
+    }
+
+
+    const updateData = {
+      status: 'approved',
+      assignedSpace: assignedParkingSpace._id
+    };
     patch(id, updateData);
     if(!error){
       setRequests(requests.filter( request => request._id !== id));
       toast.success('Parking request has been approved')
+      setApprovedParkingSpaceId(assignedParkingSpace._id)
+      navigate(`/parking-space/${assignedParkingSpace._id}`)
     }
 
 
@@ -44,7 +82,7 @@ const ManageRequests = () => {
 
 
   if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  if (error) return <div>Error: from manage request  {error.message}</div>;
 
   return (
     <div className='fetch--container'>

@@ -46,6 +46,11 @@ const handleLogout = ()=>{
 };
 
 
+const [approvedParkingSpaceId , setApprovedParkingSpaceId] = useState(null);
+
+
+
+
   return (
     <div className="App">
       <Router>
@@ -62,12 +67,12 @@ const handleLogout = ()=>{
             <Route path="/dashboard" element={<Dashboard/>} />
             <Route path='/monitor' element={<Monitor/>}/>
             <Route path="/manage-parking-lots" element={<ParkingLots/>}/>
-            <Route path="/manage-requests" element={<ManageRequests/>}/>
+            <Route path="/manage-requests" element={<ManageRequests setApprovedParkingSpaceId={setApprovedParkingSpaceId}/>}/>
             <Route path="/manage-users" element={<ManageUsers/>}/>
             <Route path="/communication" element={<Communication/>}/>
             <Route path="/send-parking-request" element={<SendParkingRequest/>}/>
             <Route path='/payments' element={<Payments/>}/>
-            <Route path='/parking-space' element={<ParkingSpace/>}/>
+            <Route path='/parking-space/:id' element={<ParkingSpace/>}/>
             <Route path='/messages' element={<Messages/>}/>
 
 

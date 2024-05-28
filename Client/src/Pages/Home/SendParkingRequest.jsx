@@ -1,5 +1,6 @@
 
 import {useNavigate } from "react-router-dom";
+import {toast} from "react-toastify"
 
 
 const SendParkingRequest = () => {
@@ -35,9 +36,12 @@ const SendParkingRequest = () => {
         if (!response.ok) {
             // handle error
             console.log('post request failed from front end' + response.status);
+            
         } else {
             // handle success
             console.log('post request succesfully sent from front end' + response.status);
+            toast.success("Parking request sent!")
+
             navigate('/')
         }
 
