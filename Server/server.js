@@ -9,7 +9,9 @@ const registerRouter = require('./Routes/register')
 const loginRouter = require('./Routes/login')
 const manageRequestsRouter = require('./Routes/manageRequests')
 const sendParkingRequestRouter = require('./Routes/sendParkingRequest')
-const sendParkingLotRouter = require('./Routes/parkingLot')
+const parkingSpaceRouter = require('./Routes/parkingSpaces')
+const parkingLotRouter = require('./Routes/locations')
+const parkingLotRouter = require('./Routes/parkingLot')
 
 
 
@@ -37,7 +39,9 @@ app.use('/register', registerRouter);
 app.use('/login', loginRouter);
 app.use('/manage-requests', manageRequestsRouter);
 app.use('/sendParkingRequest', sendParkingRequestRouter);
-app.use('/parking-lot',sendParkingLotRouter);
+app.use('/parkingSpaces', parkingSpaceRouter);
+app.use('/locations', parkingLotRouter);
+app.use('/parking-lot', parkingLotRouter);
 
 app.get("/", (req, res) => {
     res.send("Hello world!");

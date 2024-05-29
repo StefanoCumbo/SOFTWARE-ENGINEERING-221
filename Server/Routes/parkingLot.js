@@ -14,7 +14,7 @@ router.post('/', (req,res)=>{
 })
 
 
-router.delete('/' , (req, res)=>{
+router.delete('/:id' , (req, res)=>{
 
 
 })
@@ -24,4 +24,4 @@ router.delete('/' , (req, res)=>{
 
 
 
-module.exports = router;
+module.exports = router; 
