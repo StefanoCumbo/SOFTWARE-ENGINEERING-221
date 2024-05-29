@@ -42,6 +42,11 @@ const ManageRequests = ({setApprovedParkingSpaceId}) => {
 
   const handleApprove = (id) =>{
 
+    if (!requests || !parkingSpaces) {
+      toast.error('Data is still loading. Please try again later.');
+      return;
+    }
+
     const parkingRequest = requests.find((request) => request._id === id);
     const assignedLocation = locationMapping[parkingRequest.destination]
 
