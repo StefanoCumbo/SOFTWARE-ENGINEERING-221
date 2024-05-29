@@ -1,30 +1,29 @@
 
-
 {
-    "skills": [
-      {
-        "id": "1",
-        "src": "./img/product-chain-1.png",
-        "title": "Lorem ipsum ",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
-      },
-      {
-        "id": "2",
-        "src": "./img/tag-1.png",
-        "title": "Lorem ipsum ",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
-      },
-      {
-        "id": "3",
-        "src": "./img/feather-pen-2.png",
-        "title": "Lorem ipsum ",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
-      },
-      {
-        "id": "4",
-        "src": "./img/feather-pen-1.png",
-        "title": "Lorem ipsum ",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspenmdisse varius eim in eros elementum tristique"
-      }
-    ]
+  "skills": [
+    {
+      "id": "1",
+      "src": "./img/circle-user.png",
+      "title": "User-Friendly Design ",
+      "description": "Our website is designed with you in mind. Enjoy seamless navigation, clear information organization, and intuitive interfaces for hassle-free parking management."
+    },
+    {
+      "id": "2",
+      "src": "./img/shield-check.png",
+      "title": "Data Security ",
+      "description": "We understand the importance of security, especially when handling sensitive user data. We adhere to the best web security practices and standards to ensure your data is always protected."
+    },
+    {
+      "id": "3",
+      "src": "./img/credit-card.png",
+      "title": "Secure Payment Processing ",
+      "description": "Rest easy knowing your transactions are safe with us. Our website integrates top-notch payment gateways, ensuring your payments for reservations are secure and your data is protected."
+    },
+    {
+      "id": "4",
+      "src": "./img/refresh.png",
+      "title": "Real-Time Availability Updates ",
+      "description": "Stay informed at all times. Our website provides real-time updates on parking space availability, pricing, and notifications, ensuring you always have the latest information at your fingertips."
+    }
+  ]
 }
