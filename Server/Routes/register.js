@@ -2,11 +2,20 @@ const express = require('express');
 const router = express.Router();
 const User = require('../Models/user');
 const { hashedPassword } = require('../hash');
+const BannedUser = require('../Models/banned')
 
 
 router.post('/', async(req, res) => {
   console.log("Register route hit")
   const { userType, firstName, lastName, userName, email, phoneNumber, password} = req.body;
+  //check user isnt banned
+  const bannedEmail = await BannedUser.findOne({ 'email': email }).populate('user');
+  const bannedUsername = await BannedUser.findOne({ 'userName': userName }).populate('user');
+  const bannedPhoneNumber = await BannedUser.findOne({'phoneNumber': phoneNumber}).populate('user')
+  
+  if (bannedEmail || bannedUsername || bannedPhoneNumber) {
+    return res.status(403).send('Registration failed: User is banned');
+  }
   const hashed = await hashedPassword(password)
 
   try {

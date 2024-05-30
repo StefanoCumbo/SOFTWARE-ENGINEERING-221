@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
+import {toast} from 'react-toastify';
 
 const Register = ({setUserType}) => {
     const navigate = useNavigate();
 
     const [selectedUserType, setSelectedUserType] = useState("");
+
 
 
 
@@ -41,10 +43,13 @@ const Register = ({setUserType}) => {
         if (!response.ok) {
             // handle error
             console.log('post request failed from front end' + response.status);
-            // toast.error(responseData.error)
+            toast.error('Could not Register this user')
+
+
         } else {
             // handle success
             console.log('post request succesfully sent from front end' + response.status);
+            toast.success('user has been registered')
             navigate('/login')
         }
     };

@@ -644,3 +644,75 @@ h2{
     border: 2px solid #e7e7e7; /* Add a light grey border */
     border-radius: 10px;
   }
+
+  .modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 30%; /* Adjust the width as needed */
+    height: auto; /* Adjust the height as needed */
+    padding: 20px; /* Adjust the padding as needed */
+  }
+
+
+  /*  Monitor styles starts */
+
+  .monitor-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+    grid-column: 1 / span 2;
+  }
+  
+  .parking-lot-entry {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    align-items: center; /* Aligns the card and pie chart vertically */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 100%;
+    margin-bottom: 20px;
+    padding:50px;
+    background-color: var(--bg--shade);
+    border: 2px solid #e7e7e7; /* Add a light grey border */
+    border-radius: 10px; 
+  }
+
+
+  
+
+
+
+  .fetch-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+    max-width: 90%;
+  }
+ 
+  
+  .textual-details {
+    /* Additional styling if needed */
+  }
+  
+  .piechart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 70%;
+    width: 70%;
+  }
+  
+  .piechart-label {
+    text-align: center;
+    margin: 5px 0; /* Adjust the margin as needed */
+    font-size: larger; /* Increase the font size for better readability */
+  }
+  

@@ -11,7 +11,11 @@ const manageRequestsRouter = require('./Routes/manageRequests')
 const sendParkingRequestRouter = require('./Routes/sendParkingRequest')
 const parkingSpaceRouter = require('./Routes/parkingSpaces')
 const parkingLotRouter = require('./Routes/locations')
-const parkingLotRouter = require('./Routes/parkingLot')
+const sendParkingLotRouter = require('./Routes/parkingLot')
+const manageParkingSpacesRouter = require('./Routes/manageParkingSpaces')
+const banRouter = require('./Routes/ban')
+const deleteRouter = require('./Routes/delete')
+const monitorParkingLotsRouter = require('./Routes/monitorParkingLots')
 
 
 
@@ -41,7 +45,11 @@ app.use('/manage-requests', manageRequestsRouter);
 app.use('/sendParkingRequest', sendParkingRequestRouter);
 app.use('/parkingSpaces', parkingSpaceRouter);
 app.use('/locations', parkingLotRouter);
-app.use('/parking-lot', parkingLotRouter);
+app.use('/parking-lot', sendParkingLotRouter);
+app.use('/manage-ParkingSpaces', manageParkingSpacesRouter)
+app.use('/ban', banRouter)
+app.use('/delete', deleteRouter)
+app.use('/monitor-parking-lots', monitorParkingLotsRouter)
 
 app.get("/", (req, res) => {
     res.send("Hello world!");

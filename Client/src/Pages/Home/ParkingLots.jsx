@@ -1,18 +1,23 @@
 import React, { useState } from 'react';
 import useFetch from './useFetch';
+import usePatch from './usePatch';
+import {toast} from 'react-toastify'
+import Modal from 'react-modal';
 
 const ParkingLots = () => {
 
 
+  const [isReserveModalOpen, setIsReserveModalOpen] = useState(false);
+  const [reserveMessage, setReserveMessage] = useState('');
 
-    const [spaceData, setSpaceData] = useState({
-      parkingLot: '',
-      status: 'available',
-    });
+  const openReserveModal = () => setIsReserveModalOpen(true);
+  const closeReserveModal = () => setIsReserveModalOpen(false);
+
+
 
     const [updateId, setUpdateId] = useState('');
     const [status, setStatus] = useState('');
-    const [removeId, setRemoveId] = useState('')
+    const [removeId, setRemoveId] = useState('');
     
     
   
@@ -21,57 +26,72 @@ const ParkingLots = () => {
   const handleAdd = async (e) => {
     e.preventDefault();
 
-    try {
-        const response = await fetch('/parking-lot', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(spaceData),
-        });
-    
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        } else {
-          console.log('Parking space added successfully!');
-          const newSpace = await response.json(); // Get the new space data from the server response
-          onAddLot(newSpace); // Update the parent component state
-          // Update your component state here to include the new space
-        }
-      } catch (error) {
-        console.error('Error:', error);
-      }
-    // Here you would send a POST request to your server to add the new parking space
+
   };
 
   const handleRemove = async (e) => {
+
     e.preventDefault();
 
-    try {
-        const response = await fetch(`/parking-lot/${removeId}`, {
-          method: 'DELETE',
-        });
+      
     
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        } else {
-          console.log('Parking space removed successfully!');
-          onRemoveSpace(removeId); // Update the parent component state
-
-        }
-      } catch (error) {
-        console.error('Error:', error);
-      }
-    
-    // Here you would send a DELETE request to your server to remove a parking space
   };
 
-  const handleUpdate = async (e) => {
-    e.preventDefault();
 
-//stef will do
+  const{ patch, error: patchError} = usePatch('http://localhost:8000/manage-ParkingSpaces')
+
+  const handleBlock = async(id) => {
+
+    const blockData = {
+
+      status: 'blocked'
+      
+    }
+    try {
+      await patch(id, blockData);
+      if ( !patchError) {
+        toast.success('Parking Space has been blocked');
+        setRemoveId('')
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+
+  
+
+
+  const handleReserve = async(id)=>{
+
+    const reserveData = {
+      status: 'reserved',
+      reservedFor: reserveMessage
+
+    }
+    try {
+      await patch(id, reserveData);
+      if (!patchError) {
+        toast.success('Parking Space has been reserved');
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+
+
+  
+///This is called when the modal is clicked
+  const handleSubmitReservation = async (e) => {
+    e.preventDefault();
+    await handleReserve(updateId);
+    closeReserveModal();
+  };
+  
+
+  
+
     
-  }
+  
 
   return (
     <div className='parking-lot-container'>
@@ -82,6 +102,7 @@ const ParkingLots = () => {
       <div className='parking-lot-submit'>
       <button type="submit" className='btn btn-primary'>Add Parking Space</button></div>
     </form>
+
 
     <form className='parking-lot-card' onSubmit={handleRemove}>
         <h4 className='parking-lot-card-title'> Remove a Parking Lot </h4>
@@ -94,29 +115,46 @@ const ParkingLots = () => {
     </form></div>
 
     <div>
-    <form className='parking-lot-card' onSubmit={handleUpdate}>
+
+    <form className='parking-lot-card'>
         <h4 className='parking-lot-card-title'> Block or Reserve a Parking Space </h4>
         <label className='parking-lot-card-label'>
           <strong className='parking-lot-card-label-text'>Parking Space ID to update:</strong>
           <input type="text" value={updateId} onChange={(e) => setUpdateId(e.target.value)} required />
         </label>
-        <label className='parking-lot-card-label'>
-          <p className='parking-lot-status-text'><strong className='parking-lot-card-label-text'>New status:</strong>
-          <select value={status} onChange={(e) => setStatus(e.target.value)} required>
-            <option value="">Select a status</option>
-            <option value="available">Available</option>
-            <option value="occupied">Occupied</option>
-            <option value="reserved">Reserved</option>
-            <option value="blocked">Blocked</option>
-          </select></p>
-        </label>
+
+        
         <div className='parking-lot-submit'>
-        <button type="submit" className='btn btn-primary '>Update Parking Space</button></div>
+        <button type="button" className='btn btn-primary ' onClick={()=> handleBlock(updateId)}>Block parking space</button>
+        <button type="button" className='btn btn-primary' onClick={openReserveModal}> Reserve parking space </button> 
+
+        </div>
+        
+        
+
       </form></div>
+
+
+      <Modal isOpen={isReserveModalOpen} onRequestClose={closeReserveModal} className={'modal'}>
+      <h2 className='parking-lot-card-title'>Reserve Parking Space</h2>
+      <form className='register--form--container' onSubmit={handleSubmitReservation}>
+        <label className='register--label'>
+          please enter a reservation message.
+          <input className='register--input text-md'
+            type="text"
+            value={reserveMessage}
+            onChange={(e) => setReserveMessage(e.target.value)}
+            required
+          />
+        </label>
+        <button type="submit" className='btn btn-primary'>Submit Reservation</button>
+      </form>
+    </Modal>
+  
 
       
     </div>
   );
-};
 
+};
 export default ParkingLots;
