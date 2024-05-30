@@ -10,45 +10,45 @@ mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology
 
 const parkingSpaces = [
   {
-    parkingLot: '6655c56bb5c556df3835913c', // 1
+    parkingLot: '6658e5c94ca1d3d3aa736b1a', // 1
     status: 'available',
     reservedFor: null
   },
   {
-    parkingLot: '6655c56bb5c556df3835913c', // 2
+    parkingLot: '6658e5c94ca1d3d3aa736b1a', // 2
     status: 'available',
     reservedFor: null
   },
-  {
-    parkingLot: '6655c56bb5c556df3835913c', // UEA MAIN
-    status: 'available',
-    reservedFor: null
-  },
-  {
-    parkingLot: '6655c56bb5c556df3835913c', // 4
-    status: 'available',
-    reservedFor: null
-  },
-  {
-    parkingLot: '6655c56bb5c556df3835913c', // UEA MAIN
-    status: 'available',
-    reservedFor: null
-  },
-  {
-    parkingLot: '6655c56bb5c556df3835913c', // 6
-    status: 'available',
-    reservedFor: null
-  },
-  {
-    parkingLot: '6655c56bb5c556df3835913c', // UEA MAIN
-    status: 'available',
-    reservedFor: null
-  }
-  ,{
-    parkingLot: '6655c56bb5c556df3835913c', // 8
-    status: 'available',
-    reservedFor: null
-  }
+  // {
+  //   parkingLot: '6658bf9a81510708f5d7de78', // 3
+  //   status: 'available',
+  //   reservedFor: null
+  // },
+  // {
+  //   parkingLot: '6658bfd081510708f5d7de7a', // 4
+  //   status: 'available',
+  //   reservedFor: null
+  // },
+  // {
+  //   parkingLot: '6658bfd081510708f5d7de7a', // UEA MAIN
+  //   status: 'available',
+  //   reservedFor: null
+  // },
+  // {
+  //   parkingLot: '6658bfd081510708f5d7de7a', // 6
+  //   status: 'available',
+  //   reservedFor: null
+  // },
+  // {
+  //   parkingLot: '6658bffa81510708f5d7de7c', // UEA MAIN
+  //   status: 'available',
+  //   reservedFor: null
+  // }
+  // ,{
+  //   parkingLot: '6658bffa81510708f5d7de7c', // 8
+  //   status: 'available',
+  //   reservedFor: null
+  // }
     
     
   

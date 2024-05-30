@@ -8,7 +8,7 @@ const {Schema} = mongoose;
 const parkingLotSchema = new Schema({
  //_id : is auto added
 
-  location: {type: String, enum:['UEA Triangle Car Park', 'UEA West Car Park', 'UEA Main Car Park'], required:true},
+  location: {type: String, required:true, unique: true},
   capacity: {type: Number, min: 0, } ,
   availability: {type:Number, min: 0, },
   type_of_parking: {type: String, enum:['Disabled Parking', 'Visitor Parking', 'Staff/Student Parking']},

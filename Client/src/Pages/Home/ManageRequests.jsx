@@ -42,10 +42,10 @@ const ManageRequests = ({setApprovedParkingSpaceId}) => {
 
   const handleApprove = (id) =>{
 
-    const parkingRequest = requests.find((request) => request._id === id);
-    const assignedLocation = locationMapping[parkingRequest.destination]
+    const parkingRequest = requests?.find((request) => request._id === id);
+    const assignedLocation = locationMapping[parkingRequest?.destination]
 
-    const assignedParkingSpace = parkingSpaces.find((space) => space.parkingLot.location === assignedLocation
+    const assignedParkingSpace = parkingSpaces?.find((space) => space.parkingLot?.location === assignedLocation
       && space.status === 'available'
     );
 
