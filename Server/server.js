@@ -16,6 +16,7 @@ const manageParkingSpacesRouter = require('./Routes/manageParkingSpaces')
 const banRouter = require('./Routes/ban')
 const deleteRouter = require('./Routes/delete')
 const monitorParkingLotsRouter = require('./Routes/monitorParkingLots')
+const paymentRouter = require('./Routes/payment')
 
 
 
@@ -50,6 +51,7 @@ app.use('/manage-ParkingSpaces', manageParkingSpacesRouter)
 app.use('/ban', banRouter)
 app.use('/delete', deleteRouter)
 app.use('/monitor-parking-lots', monitorParkingLotsRouter)
+app.use('/payment', paymentRouter)
 
 app.get("/", (req, res) => {
     res.send("Hello world!");

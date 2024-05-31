@@ -29,7 +29,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
-const [userType, setUserType] = useState("admin");
+const [userType, setUserType] = useState("driver");
 
 let NavBarComponent;
 if(userType ==='admin'){

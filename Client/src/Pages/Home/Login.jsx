@@ -1,4 +1,5 @@
 import { Navigate, useNavigate } from "react-router-dom";
+import {toast} from 'react-toastify'
 
 const Login = () => {
     const navigate = useNavigate()
@@ -25,6 +26,8 @@ const Login = () => {
         if (!response.ok) {
             // handle error
             console.log('post request failed from front end' + response.status);
+            
+
         } else {
             // handle success
             console.log('post request succesfully sent from front end' + response.status);
@@ -42,7 +45,7 @@ const Login = () => {
             <div>
                 <p className="login-title"></p>
                 <h2>Login</h2>
-                <p className="text-lg"> Already a member? log in to access your portal</p>
+                <p className="text-lg"> Already a member?  log in to access your portal</p>
             </div>
             <form onSubmit={handleSubmit} className="register--form--container">
                 <div className="container">

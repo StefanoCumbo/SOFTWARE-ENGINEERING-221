@@ -198,7 +198,7 @@ const ParkingLots = () => {
          <input className='parking-lot-input' type="text" value={removeId} onChange={(e) => setRemoveId(e.target.value)} required />
         </label>
         <div className='parking-lot-submit'>
-        <button type="submit" className='btn btn-primary '>Remove Parking Space</button></div>
+        <button type="submit" className='btn btn-primary '>Remove Parking Lot</button></div>
     </form>
 
     <div>
